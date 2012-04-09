@@ -15,6 +15,7 @@
     var hreviewaggs = {};
     var hrecipes    = {};
     var geos        = {};
+    var hproducts   = {};
     
     // Set up OAuth for a secure connection between Google and this plugin
     // https://www.google.com/m8/feeds/ is for Google Contacts
@@ -44,6 +45,7 @@
       hreviewaggs[tabId] = request.hreviewaggs;
       hrecipes[tabId]    = request.hrecipes;
       geos[tabId]        = request.geos;
+      hproducts[tabId]   = request.hproducts;
       
       // convert JSON back to objects that the popup can use
       for (var i = 0; i < hcards[tabId].length; i++) {
@@ -63,6 +65,10 @@
       }
       for (var g = 0; g < geos[tabId].length; g++) {
         geos[tabId][g] = JSON.parse(geos[tabId][g]);
+      }
+
+      for (var p = 0; p < hproducts[tabId].length; p++){
+        hproducts[tabId][p] = JSON.parse(hproducts[tabId][p]);
       }
       
       // display the icon in the address bar

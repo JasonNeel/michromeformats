@@ -45,6 +45,7 @@
       var hreviewaggs = bgPage.hreviewaggs[tab.id];
       var hrecipes    = bgPage.hrecipes[tab.id];
       var geos        = bgPage.geos[tab.id];
+      var hproducts   = bgPage.hproducts[tab.id];
 
       // let's put these suckers on the page!
       $.each(hcards, function(i, hcard) {
@@ -254,6 +255,12 @@
         var mapString = [geo.latitude, geo.longitude];
         $('#geo-'+l+' ul').append('<li><a href="http://maps.google.com/maps?q='+encodeURIComponent(mapString)+'" target="_blank" title="View on Google Maps"><img src="http://maps.google.com/maps/api/staticmap?center='+encodeURIComponent(mapString.join(" "))+'&zoom=14&size=100x100&markers=color:green|label:A|'+mapString+'&sensor=false" class="static-map"></a></li>');
       });
+
+      $.each(hproducts, function(p, hproduct){
+        var hproductHTML = $('<li class="hproduct" id="hproduct'+p+'"><div class="details"><h1>'+ hproduct.fn +'</h1>');
+
+        $("#hproducts").append(hproductHTML); 
+      });
     });
   </script>
   <link href="/stylesheets/popup.css" media="all" rel="stylesheet" type="text/css" />
@@ -284,6 +291,9 @@
     </ul>
 
     <ul id="geos">
+    </ul>
+
+    <ul id="hproducts">
     </ul>
   </div>
 </body>

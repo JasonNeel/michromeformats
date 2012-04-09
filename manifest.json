@@ -13,6 +13,7 @@
         "javascripts/microformats/microformat.js",
         "javascripts/microformats/hreview-aggregate.js",
         "javascripts/microformats/hrecipe.js",
+        "javascripts/microformats/hproduct.js",
         "javascripts/microformats/microformats-shiv.min.js",
         "javascripts/microformats/microformats-coredefinition.min.js",
         "javascripts/microformats/microformats-hreviewdefinition.min.js",

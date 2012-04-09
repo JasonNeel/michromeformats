@@ -5,6 +5,9 @@ function discoverMicroformats() {
   var hreviewaggs = HReviewAggregate.discover();
   var hrecipes    = HRecipe.discover();
   var geos        = ufShiv.get('geo', document.body)['microformats']['geo'];
+  //var hproducts   = ufShiv.get('hProduct', document.body)/*['microformats']['hproduct']*/;
+  var hproducts   = HProduct.discover();
+  //alert("From contentscript.js: " + hproducts.length)
 
   // convert objects into JSON so we can
   // pass the arrays to the background page
@@ -29,7 +32,11 @@ function discoverMicroformats() {
     geos[i] = JSON.stringify(geos[i]);
   }
 
-  chrome.extension.sendRequest({hcards: hcards, hcalendars: hcalendars, hreviews: hreviews, hreviewaggs: hreviewaggs, hrecipes: hrecipes, geos: geos});
+  for(i = 0; i < hproducts.length; i++){
+    hproducts[i] = JSON.stringify(hproducts[i]);
+  }
+
+  chrome.extension.sendRequest({hcards: hcards, hcalendars: hcalendars, hreviews: hreviews, hreviewaggs: hreviewaggs, hrecipes: hrecipes, geos: geos, hproducts: hproducts});
 }
 
 discoverMicroformats();
